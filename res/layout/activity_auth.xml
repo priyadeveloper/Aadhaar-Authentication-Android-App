@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01" 
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" 
+    android:scrollbars="vertical">
+    <LinearLayout 
+        android:layout_width="fill_parent"
+        android:orientation="vertical" 
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et1"
+            android:layout_width="318dp"
+            android:layout_height="91dp"
+            android:height="15dp"
+            android:hint="@string/aadhaar"
+            android:imeOptions="actionSend"
+            android:inputType="phone" >
+        </EditText>
+
+<EditText
+    android:id="@+id/et2"
+    android:layout_width="fill_parent"
+    android:layout_height="130dp"
+    android:height="15dp"
+    android:hint="@string/name"
+    android:inputType="text" >
+
+</EditText>
+
+<Spinner
+    android:id="@+id/rg1"
+    android:layout_width="fill_parent"
+    android:layout_height="125dp"
+    android:entries="@array/options"
+    android:prompt="@string/gen" >
+
+</Spinner>
+
+
+<Button
+    android:id="@+id/btn1"
+    android:layout_width="match_parent"
+    android:layout_height="85dp"
+    android:background="#6598cb"
+    android:text="@string/button"
+    android:textColor="@color/button_text_color" >
+
+</Button>
+
+
+<!--Put form controls here-->
+
+    </LinearLayout>
+</ScrollView>

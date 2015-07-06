@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Auth-App</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="aadhaar">Enter your Aadhaar Number</string>
+      <string name="button">Authenticate Aadhaar Credentials</string>
+     <string name="name">Enter your Name</string>
+     <string name="authActivity">Aadhaar Credentials Authentication </string>
+     <string name="gen">GENDER</string>
+     <string name="opt">--SELECT GENDER--</string>
+     <string name="opt1">MALE</string>
+     
+	<string name="opt2">FEMALE</string>
+	<string name="opt3">TRANSGENDER</string>
+	
+	<string-array name="options">
+	    <item>@string/opt</item>
+		<item>@string/opt1</item>
+		<item>@string/opt2</item>
+		<item>@string/opt3</item>
+		
+	</string-array>
+
+</resources>
