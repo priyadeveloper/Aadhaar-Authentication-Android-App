@@ -89,8 +89,6 @@ public class Auth extends Activity {
 				SecretKey key = kgen.generateKey();
 				symmkey = key.getEncoded();
 				
-		
-				
 				return symmkey;
 			}
 
@@ -123,6 +121,7 @@ public class Auth extends Activity {
 
 		
 			private String generateData(byte[] raw, byte[] clear) throws Exception {
+				//generate the Data element
 		        SecretKeySpec skeySpec = new SecretKeySpec(raw, "AES");
 
 		        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS7Padding", "BC");
@@ -133,11 +132,12 @@ public class Auth extends Activity {
 			private String generateHMAC(byte[] raw,byte[] clear) throws Exception
 			{
 				MessageDigest md = MessageDigest.getInstance("SHA-256");
-			//get nothing
+			
 
-				md.update(clear); // Change this to "UTF-16" if needed
+				md.update(clear); 
 				byte[] digest = md.digest();
 				return generateData(raw,digest);
+				//The HMAC can now be encrypted with the same method as generation of Data Block
 				
 			}
 			private String getTimeStamp(String s) {
@@ -178,7 +178,7 @@ public class Auth extends Activity {
 			
 			@Override
 			protected String doInBackground(String... params) {
-				android.os.Debug.waitForDebugger();
+				//android.os.Debug.waitForDebugger();
 				try{
 					InputStream reader=getAssets().open("uidai_auth_stage.cer");
 						
@@ -219,12 +219,7 @@ public class Auth extends Activity {
 					
 					sendAuthRequest(params[0]);
 				
-			/*	Handler handler=new Handler(getBaseContext().getMainLooper());
-				handler.post(new Runnable(){
-					public void run(){
-						Toast.makeText(getBaseContext(),"current context",Toast.LENGTH_LONG).show();
-					}
-				});*/
+			
 				
 				
 				
@@ -255,18 +250,11 @@ public class Auth extends Activity {
 			{
 				
 				
-				//char c0=s.charAt(0);
-				//char c1=s.charAt(1);
+			
 				StringBuilder stringBuilder = new StringBuilder();
 				stringBuilder.append("http://192.168.42.74:8080/uidwebservice/webresources/MyPath/");
 				stringBuilder.append(s);
-				//stringBuilder.append("/otp");
 				
-				/*		+ "1.6/public/");
-				stringBuilder.append(c0);
-				stringBuilder.append("/");
-				stringBuilder.append(c1);
-				stringBuilder.append("/MLTbKYcsgYMq1zgL3WMZYrnyvsarlljxpom2A-QTPc0Zud23shpnqPk");*/
 						
 				String url=stringBuilder.toString();
 				
@@ -353,24 +341,7 @@ public class Auth extends Activity {
 		setContentView(R.layout.activity_auth);
 		et1=(EditText)findViewById(R.id.et1);
 		et2=(EditText)findViewById(R.id.et2);
-		/*et1.setOnEditorActionListener(new OnEditorActionListener() {
-			 public boolean onEditorAction(TextView textView,
-					 int actionId,
-					KeyEvent event) {
-					
-					aadhaarnum = textView.getText().toString();
-					validateVerhoeff=Verhoeff.validateVerhoeff(aadhaarnum);
-					if(aadhaarnum.length()!=12)
-						Toast.makeText(getBaseContext(), "Enter a 12-digit aadhaar number", 2000).show();
-					else
-						if(!validateVerhoeff)
-						Toast.makeText(getBaseContext(),"Enter a valid aadhaar number",2000).show();
-					
-					
-					 
-					 return false;
-					 }
-					});*/
+		
 		gender = (Spinner) findViewById(R.id.rg1);
 		 b=(Button)findViewById(R.id.btn1);
 		
